@@ -1,0 +1,12 @@
+#stat{
+    padding-top: 20px;
+}
+
+.row{
+    padding: 0 !important;
+}
+
+li{
+    margin-top: 5px;
+    border-radius: 5px !important;
+}
