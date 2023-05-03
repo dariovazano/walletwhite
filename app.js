@@ -2,22 +2,23 @@
 
 // alert("Bienvenido a Wallet White un analisador de gastos mensuales\nEn esta ocación vamos a:\n-Crear y elimiar categorias\n-Agregar y eliminar gastos de cada categoria\n-Cálculo del total y el porcentaje de cada categoria")
 
-const categories= ["Vivienda","Alimentación","Transporte"]
+// const categories= ["Vivienda","Alimentación","Transporte"]
+const categories=[]
+const bills= []
+// const bills= [
+//     {id:1, categorie:"Vivienda", fecha:"22/04/2023", coment:"vivienda", bill:1750},
+//     {id:2, categorie:"Vivienda", fecha:"22/04/2023", coment:"vivienda", bill:75},
+//     {id:3, categorie:"Vivienda", fecha:"22/04/2023", coment:"vivienda", bill:7},
+//     {id:4, categorie:"Alimentación", fecha:"22/04/2023", coment:"Alimentación", bill:850},
+//     {id:5, categorie:"Alimentación", fecha:"22/04/2023", coment:"Alimentación", bill:75},
+//     {id:6, categorie:"Alimentación", fecha:"22/04/2023", coment:"Alimentación", bill:7},
+//     {id:7, categorie:"Transporte", fecha:"22/04/2023", coment:"Transporte", bill:950},
+//     {id:8, categorie:"Transporte", fecha:"22/04/2023", coment:"Transporte", bill:75},
+//     {id:9, categorie:"Transporte", fecha:"22/04/2023", coment:"Transporte", bill:7}
+// ]
 
-const bills= [
-    {id:1, categorie:"Vivienda", fecha:"22/04/2023", coment:"vivienda", bill:1750},
-    {id:2, categorie:"Vivienda", fecha:"22/04/2023", coment:"vivienda", bill:75},
-    {id:3, categorie:"Vivienda", fecha:"22/04/2023", coment:"vivienda", bill:7},
-    {id:4, categorie:"Alimentación", fecha:"22/04/2023", coment:"Alimentación", bill:850},
-    {id:5, categorie:"Alimentación", fecha:"22/04/2023", coment:"Alimentación", bill:75},
-    {id:6, categorie:"Alimentación", fecha:"22/04/2023", coment:"Alimentación", bill:7},
-    {id:7, categorie:"Transporte", fecha:"22/04/2023", coment:"Transporte", bill:950},
-    {id:8, categorie:"Transporte", fecha:"22/04/2023", coment:"Transporte", bill:75},
-    {id:9, categorie:"Transporte", fecha:"22/04/2023", coment:"Transporte", bill:7}
-]
 
 
-alert("dale dale")
 
 function pintar(){
     
@@ -103,10 +104,6 @@ const reset=()=>{
 
 
 pintar()
-
-alert("volvemos a 0")
-
-
 
 
 
