@@ -132,13 +132,13 @@ agregargasto.addEventListener("click",(e)=>{
     nuevoGasto.id=bills.length+1
    
         nuevoGasto.categorie=e.target.id//id es la categoria en este caso
-        // nuevoGasto.fecha=prompt("fecha")
-        // nuevoGasto.coment=prompt("comentario")
-        // nuevoGasto.bill=prompt("cuanto")
+        nuevoGasto.fecha=prompt("fecha")
+        nuevoGasto.coment=prompt("comentario")
+        nuevoGasto.bill=Number(prompt("gasto"))
 
-        nuevoGasto.fecha="dddd"
-        nuevoGasto.coment="dfdfsdf"
-        nuevoGasto.bill=333
+        // nuevoGasto.fecha="dddd"
+        // nuevoGasto.coment="dfdfsdf"
+        // nuevoGasto.bill=333
         
         
         bills.push(nuevoGasto)
