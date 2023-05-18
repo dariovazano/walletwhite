@@ -1,4 +1,4 @@
-<html lang="en">
+textarea<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,6 +19,7 @@
           </nav>
     </header>
     <Main>
+        <!-- suma y porcentajes -->
         <section id="stat" class="bg-secondary">
             <div class="container-fluid">
                 <dir class="row">
@@ -43,25 +44,78 @@
                 </dir>
             </div>
         </section>
+        <!-- Categorias -->
         <section id="categorias">
             <div class="container-fluid">
                 <div id="categories"class="row align-items-center">
-                    </div>
-                    <div class="col-12">
-                        <div class="card text-center text-bg-secondary mb-3">
-                            <div class="card-body">
-                                <button name="agregarCategoria" type="button" id="agregarCategoria" class="btn btn-primary">Agregar categoría nueva</button>
-                            </div>
-                        </div>
+                </div>
+            </div>
+        </section>
+        <!-- Boton agregar categoria -->
+        <section id="agragarcategoria">
+            <div class="container-fluid">
+                <div class="col-12">
+                    <div class="card text-center text-bg-secondary mb-3">
+                        <div class="card-body">
+                            <form id="agregarCategoria">
+                                <input type="categoria" name="nuevacategoria" id="categorianueva" class="form-control"
+                                    aria-describedby="emailHelp">
+                                <div id="emailHelp" class="form-text">Escribí el nombre para tu categoría nueva</div>
+                                <button id="submit" name="bg-secondary" type="submit" class="btn btn-primary">Agregar categoríanueva</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <div>
-                <dir></dir>
-            </div>
-
         </section>
+        <!-- boton reset -->
+        <section id="reset">
+            <div class="container-fluid">
+                <div class="col-12">
+                    <div class="card text-center text-bg-secondary mb-3">
+                        <div class="card-body">
+                            <button name="borrarMemoria" type="button" id="borrarMemoria" class="btn btn-danger">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- cargar gastos  -->
+        <section id="cargarGasto">
+            <div class="container-fluid">
+        
+                <div class="col-12">
+                    <div class="card text-center text-bg-light mb-3">
+                        <div class="card-body">
+                            <form id="formugasto">
+                                <h3>Formulario para cargar gastos</h1>
+                                    <div class="mb-3">
+                                        <label for="imputcategoria" class="form-label">Elegí la categoria</label>
+                                        <select id="select" class="form-select text-center" aria-label="Default select example">
+                                            <!-- aca se inserta las opciones  -->
+                                        </select>
+                                    </div>
+                                    <div id="formufechas" class="mb-3">
+                                        <!-- aca inserto el fomulario de fecha    -->
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputgasto" class="form-label">Cuánto dolio?</label>
+                                        <input type="inputgasto" name="inputgasto" id="inputgasto"
+                                            class="form-control text-center" aria-describedby="emailHelp">
+                                        <div id="validacion" class="form-text">aca va la validacion</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputcomentario" class="form-label">Comnetarios al respecto...</label>
+                                        <textarea name="inputcomentario" class="form-control text-center" id="inputcomentario" rows="3"></textarea>
+                                    </div>
+                                    <button type="submit" id="cargargasto" class="btn btn-primary">Cargar Gasto</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </Main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="app.js"></script>
