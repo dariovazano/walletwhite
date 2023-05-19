@@ -1,4 +1,4 @@
-textarea<html lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -59,9 +59,9 @@ textarea<html lang="en">
                         <div class="card-body">
                             <form id="agregarCategoria">
                                 <input type="categoria" name="nuevacategoria" id="categorianueva" class="form-control"
-                                    aria-describedby="emailHelp">
-                                <div id="emailHelp" class="form-text">Escribí el nombre para tu categoría nueva</div>
-                                <button id="submit" name="bg-secondary" type="submit" class="btn btn-primary">Agregar categoríanueva</button>
+                                    aria-describedby="emailHelp" >
+                                <h5 id="validacioncat">Inserta el nombre de tu nueva categoría</h5>
+                                <button id="submit" name="bg-secondary" type="submit" class="btn btn-primary" disabled>Agregar categoríanueva</button>
                             </form>
                         </div>
                     </div>
@@ -78,6 +78,7 @@ textarea<html lang="en">
                         </div>
                     </div>
                 </div>
+                
             </div>
         </section>
         <!-- cargar gastos  -->
@@ -99,16 +100,16 @@ textarea<html lang="en">
                                         <!-- aca inserto el fomulario de fecha    -->
                                     </div>
                                     <div class="mb-3">
-                                        <label for="inputgasto" class="form-label">Cuánto dolio?</label>
-                                        <input type="inputgasto" name="inputgasto" id="inputgasto"
+                                        <label for="inputgasto" class="form-label">Cuánto gastaste?</label>
+                                        <input type="number" name="inputgasto" id="inputgasto"
                                             class="form-control text-center" aria-describedby="emailHelp">
-                                        <div id="validacion" class="form-text">aca va la validacion</div>
+                                        <h5 id="validaciongas" class="form-text">Incluí tu gasto</h5>
                                     </div>
                                     <div class="mb-3">
                                         <label for="inputcomentario" class="form-label">Comnetarios al respecto...</label>
                                         <textarea name="inputcomentario" class="form-control text-center" id="inputcomentario" rows="3"></textarea>
                                     </div>
-                                    <button type="submit" id="cargargasto" class="btn btn-primary">Cargar Gasto</button>
+                                    <button type="submit" id="submitgasto" class="btn btn-primary">Cargar Gasto</button>
                             </form>
                         </div>
                     </div>

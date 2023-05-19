@@ -28,7 +28,6 @@ const bills = []
 
 let data = localStorage.getItem("data")
 let local = JSON.parse(data)
-console.log(local)
 if (local == null) {
     local = {
         "categories": categories,
@@ -202,16 +201,18 @@ formulario1.addEventListener("submit", (e) => {
     pintarform()
     localStorage.setItem("data", JSON.stringify(local))
     formulario1.reset()
+    document.querySelector("#submit").setAttribute("disabled", "disabled")
 });
 
 //agregar Gasto y Eliminar Gasto
 
 //este evento captura el boton de donde se criqueo, 
-//si es agregar gasto solo te scrollea hasta la seccion donde se agrega y te completa la categoria en el fomulario
+
 //si es en un botoncito de eliminar elimina el gasto directamente.
 
 const agregargasto = document.querySelector("#categories")
 agregargasto.addEventListener("click", (e) => {
+    //si es agregar gasto solo te scrollea hasta la seccion donde se agrega y te completa la categoria en el fomulario
     if (e.target.name == "add") {
         reset()
         pintar()
@@ -221,31 +222,14 @@ agregargasto.addEventListener("click", (e) => {
         element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
     }
 
-    //     reset()
-
-    //     const nuevoGasto = {}
-    //     nuevoGasto.id = local.bills.length + 1
-
-    //     nuevoGasto.categorie = e.target.id//id es la categoria en este caso
-    //     nuevoGasto.fecha = prompt("fecha")
-    //     nuevoGasto.coment = prompt("comentario")
-    //     nuevoGasto.bill = Number(prompt("gasto"))
-
-
-    //     local.bills.push(nuevoGasto)
-
-    //     pintar()
-    //     pintarform()
-    //     localStorage.setItem("data", JSON.stringify(local))
-    // }
+    //si es en un botoncito de eliminar elimina el gasto directamente.
     if (e.target.name == "remove") {
         reset()
-        console.log("   hola")
+
         let i = 0
         local.bills.forEach(bill => {
 
             if (bill.id == e.target.id) {
-                console.log(`si ${i}`)
                 local.bills.splice(i, 1)
             }
             else {
@@ -257,34 +241,69 @@ agregargasto.addEventListener("click", (e) => {
         localStorage.setItem("data", JSON.stringify(local))
     }
 })
+
+//Validaciones de los campos. 
+
+//categorias
+const inputcat = document.querySelector("#categorianueva")
+inputcat.addEventListener("keyup", (e) => {
+    if (local.categories.length == 0) {
+        document.querySelector("#submit").removeAttribute("disabled")
+        document.querySelector("#validacioncat").textContent = "Nombre de catregoía aceptable"
+    }
+    local.categories.forEach(categorie => {
+        if (inputcat.value.toLowerCase() == categorie.toLowerCase()) {
+            document.querySelector("#submit").setAttribute("disabled", "disabled")
+            document.querySelector("#validacioncat").textContent = "Esta categoría ya existe"
+        }
+        else {
+            document.querySelector("#submit").removeAttribute("disabled")
+            document.querySelector("#validacioncat").textContent = "Nombre de catregoía aceptable"
+        }
+    })
+    if (inputcat.value == "") {
+        document.querySelector("#submit").setAttribute("disabled", "disabled")
+        document.querySelector("#validacioncat").textContent = "Inserta el nombre de tu nueva categoría"
+    }
+})
+//valor de gastos
+const inputgas = document.querySelector("#inputgasto")
+inputgas.addEventListener("keyup", (e) => {
+    if (inputgas.value == 0) {
+        document.querySelector("#submitgasto").setAttribute("disabled", "disabled")
+        document.querySelector("#validaciongas").textContent = "incluí un valor mayor que 0"
+    }
+    else {
+        document.querySelector("#submitgasto").removeAttribute("disabled")
+    }
+
+
+})
+
+
+
+
 //aqui esta el evento para capturar el gasto añadido
 const formugasto = document.querySelector("#formugasto")
 let categoriagasto = document.querySelector("#select")
-console.log(categoriagasto.value)
 let fechagasto = document.querySelector("#inputfecha")
 let gastogasto = document.querySelector("#inputgasto")
 const comentariogasto = document.querySelector("#inputcomentario")
 formugasto.addEventListener("submit", (e) => {
     e.preventDefault()
-    console.log("adentro")
     let aux = categoriagasto.value
     reset()
-
     let nuevoGasto = {}
     nuevoGasto.id = local.bills.length + 1
     nuevoGasto.categorie = aux
     nuevoGasto.fecha = fechagasto.value
     nuevoGasto.coment = comentariogasto.value
     nuevoGasto.bill = Number(gastogasto.value)
-    console.log(nuevoGasto)
-
     local.bills.push(nuevoGasto)
-
     pintar()
     pintarform()
     localStorage.setItem("data", JSON.stringify(local))
-
-
+    formugasto.reset()
 })
 
 
@@ -298,10 +317,6 @@ back.addEventListener("click", (e) => {
     reset()
     local.categories = []
     local.bills = []
-
-
-
-    console.log(local)
     pintar()
     localStorage.setItem("data", JSON.stringify(local))
 })
