@@ -527,3 +527,5 @@ const pedirAsesores = async () => {
 }
 
 pedirAsesores()
+
+// Header add Content - Security - Policy "upgrade-insecure-requests"
