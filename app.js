@@ -87,7 +87,7 @@ let grafico1 = new Morris.Area({
     ],
     xkey: 'dia',
     ykeys: ['Actual', 'Promedio'],
-    labels: ['Actual', 'Promedio últimos 3 meses'],
+    labels: ['Mes Actual', 'Promedio últimos 3 meses'],
     parseTime: false,
     resize: 'true',
     lineWidth: 2,
@@ -139,7 +139,7 @@ function pintar() {
     document.querySelector("#totalMes").textContent = `Total del mes $ ${totalMes}`
 
 
-    //Total total
+    //Total global
 
     let total = local.bills.reduce((accum, gasto) => {
         return accum + gasto.bill;
@@ -351,7 +351,7 @@ const nuevacat = document.querySelector("#categorianueva")
 formulario1.addEventListener("submit", (e) => {
     e.preventDefault()
     reset()
-    local.categories.push(nuevacat.value.replace(" ", "-"))
+    local.categories.push(nuevacat.value.replace(/ /gi, "-"))
     pintar()
     pintarform()
     localStorage.setItem("data", JSON.stringify(local))
@@ -462,10 +462,7 @@ formugasto.addEventListener("submit", (e) => {
     localStorage.setItem("data", JSON.stringify(local))
 
 
-    //porbando
-    // let d = Number(nuevoGasto.fecha.substring(8, 10))
-    // console.log(d)
-    //probando
+
 
     document.querySelector("#inputfecha").value = ""
     formugasto.reset()
