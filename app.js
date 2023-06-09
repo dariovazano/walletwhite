@@ -106,7 +106,7 @@ let grafico2 = new Morris.Donut({
     resize: 'true',
     formatter: function (x) { return x + "%" }
 }).on('click', function (i, row) {
-    console.log(i, row);
+
 
 });
 
@@ -170,7 +170,7 @@ function pintar() {
     let data3 = []
 
     local.bills.forEach(element => {
-        console.log(element.fecha)
+
 
     });
 
@@ -183,7 +183,7 @@ function pintar() {
 
         // aca calculoel actual
         let otro = local.bills.filter((producto) => producto.fecha == `${year}/${month}/${b}`)
-        console.log(`${year}/${month}/${b}`)
+
         let otro2 = otro.reduce((accum, gasto) => {
             return accum + gasto.bill;
 
@@ -203,8 +203,8 @@ function pintar() {
             if (0 < month - h < 10) { montha = `0${month - h}` } else { montha = month - h }
 
             let otro4 = local.bills.filter((producto) => producto.fecha == `${yeara}/${montha}/${b}`)
-            console.log(`${yeara}/${montha}/${b}`)
-            console.log(otro4)
+
+
             let otro5 = otro4.reduce((accum, gasto) => {
                 return accum + gasto.bill;
 
@@ -220,7 +220,7 @@ function pintar() {
 
 
 
-    console.log(data3)
+
     grafico1.setData(data3)
 
 
@@ -448,7 +448,6 @@ formugasto.addEventListener("submit", (e) => {
     e.preventDefault()
     let aux = categoriagasto.value
     let aux2 = fechagasto.value
-    console.log(aux2)
     reset()
     let nuevoGasto = {}
     nuevoGasto.id = local.bills.length + 1
@@ -502,7 +501,7 @@ let aserores = document.querySelector("#asesores")
 const pedirAsesores = async () => {
     const resp = await fetch("/asesores.json")
     const data = await resp.json()
-    console.log(data)
+
 
     data.forEach((asesor) => {
         const ase = document.createElement("div")
