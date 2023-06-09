@@ -499,7 +499,7 @@ back.addEventListener("click", (e) => {
 let aserores = document.querySelector("#asesores")
 
 const pedirAsesores = async () => {
-    const resp = await fetch("/asesores.json")
+    const resp = await fetch("./asesores.json")
     const data = await resp.json()
 
 
